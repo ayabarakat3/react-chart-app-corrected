@@ -9,7 +9,7 @@ const BubbleChart = ({ data }) => {
         data: data.sales.map((sale, index) => ({
           x: sale,
           y: data.profits[index],
-          r: data.expenses[index] / 1000, 
+          r: data.expenses[index] / 100,
         })),
         backgroundColor: 'rgba(249, 214, 232, 0.8)',
         borderColor: 'rgba(134, 11, 74, 0.8)',
@@ -22,19 +22,21 @@ const BubbleChart = ({ data }) => {
     responsive: true,
     scales: {
       x: {
+        type: 'linear',
         title: {
           display: true,
           text: 'Sales',
         },
       },
       y: {
+        type: 'linear',
         title: {
           display: true,
           text: 'Profits',
         },
       },
     },
-  };
+  }; 
 
   return <ChartComponent type="bubble" data={chartData} options={options} />;
 };
