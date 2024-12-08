@@ -33,7 +33,7 @@ const App = () => {
       </div>
 
       <div>
-        <h2>Scatter Chart shows Expenses vs. Profits</h2>
+        <h2>Scatter Chart shows Expenses vs Profits</h2>
         <ScatterChart data={data} />
       </div>
 
