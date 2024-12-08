@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import BarChart from './src/BarChart';
-import LineChart from './src/LineChart';
-import ScatterChart from './src/ScatterChart';
-import BubbleChart from './src/BubbleChart';
+import BarChart from './components/BarChart';
+import LineChart from './components/LineChart';
+import ScatterChart from './components/ScatterChart';
+import BubbleChart from './components/BubbleChart';
 
 const App = () => {
   const [data, setData] = useState(null);
@@ -10,9 +10,7 @@ const App = () => {
   useEffect(() => {
     fetch('/data.json')
       .then((response) => response.json())
-      .then((data) => {
-        setData(data);
-      })
+      .then((data) => setData(data))
       .catch((error) => console.error('Error while fetching the JSON file', error));
   }, []);
 
