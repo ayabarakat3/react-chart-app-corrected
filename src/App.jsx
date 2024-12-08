@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import BarChart from './components/BarChart';
-import LineChart from './components/LineChart';
-import ScatterChart from './components/ScatterChart';
-import BubbleChart from './components/BubbleChart';
+import BarChart from './src/BarChart';
+import LineChart from './src/LineChart';
+import ScatterChart from './src/ScatterChart';
+import BubbleChart from './src/BubbleChart';
 
 const App = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    fetch('/financial_data.json')
+    fetch('/data.json')
       .then((response) => response.json())
-      .then((data) => setData(data))
+      .then((data) => {
+        setData(data);
+      })
       .catch((error) => console.error('Error while fetching the JSON file', error));
   }, []);
 
@@ -33,7 +35,7 @@ const App = () => {
       </div>
 
       <div>
-        <h2>Scatter Chart shows Expenses vs Profits</h2>
+        <h2>Scatter Chart shows Expenses vs. Profits</h2>
         <ScatterChart data={data} />
       </div>
 
