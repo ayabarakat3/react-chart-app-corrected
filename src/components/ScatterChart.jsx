@@ -7,10 +7,14 @@ const ScatterChart = ({ data }) => {
       {
         label: 'Expenses vs Profits',
         data: data.expenses.map((expense, index) => ({
-          x: expense, 
-          y: data.profits[index], 
+          x: expense,
+          y: data.profits[index],
         })),
-        backgroundColor: 'rgba(250, 253, 178, 0.8)', 
+        backgroundColor: 'rgba(134, 11, 74, 0.8)',
+        borderColor: 'rgba(134, 11, 74, 0.8)',
+        borderWidth: 1,
+        pointBackgroundColor: 'rgba(249, 214, 232, 0.8)',
+        pointRadius: 5,
       },
     ],
   };
@@ -19,10 +23,16 @@ const ScatterChart = ({ data }) => {
     responsive: true,
     scales: {
       x: {
-        beginAtZero: true,
+        title: {
+          display: true,
+          text: 'Expenses',
+        },
       },
       y: {
-        beginAtZero: true,
+        title: {
+          display: true,
+          text: 'Profits',
+        },
       },
     },
   };

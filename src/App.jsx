@@ -21,22 +21,18 @@ const App = () => {
   return (
     <div>
       <h1>Interactive Charts with React and Chart.js</h1>
-
       <div>
         <h2>Bar Chart shows Monthly Sales</h2>
         <BarChart data={data} />
       </div>
-
       <div>
         <h2>Line Chart shows Monthly Profits</h2>
         <LineChart data={data} />
       </div>
-
       <div>
         <h2>Scatter Chart shows Expenses vs. Profits</h2>
         <ScatterChart data={data} />
       </div>
-
       <div>
         <h2>Bubble Chart shows Sales, Profits, and Expenses</h2>
         <BubbleChart data={data} />

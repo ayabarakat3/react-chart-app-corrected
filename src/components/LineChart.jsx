@@ -3,14 +3,15 @@ import ChartComponent from './ChartComponent';
 
 const LineChart = ({ data }) => {
   const chartData = {
-    labels: data.months, 
+    labels: data.months,
     datasets: [
       {
         label: 'Profits',
-        data: data.profits, 
-        borderColor: 'rgba(225, 57, 129, 0.8)', 
-        borderWidth: 1,
-        fill: false, 
+        data: data.profits,
+        borderColor: 'rgba(134, 11, 74, 0.8)',
+        backgroundColor: 'rgba(249, 214, 232, 0.8)',
+        fill: false,
+        borderWidth: 2,
       },
     ],
   };
@@ -23,7 +24,7 @@ const LineChart = ({ data }) => {
       },
     },
   };
-// Code meant to make sure that it begins the chart at zero 
+
   return <ChartComponent type="line" data={chartData} options={options} />;
 };
 

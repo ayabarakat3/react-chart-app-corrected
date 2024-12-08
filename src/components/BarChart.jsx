@@ -3,13 +3,13 @@ import ChartComponent from './ChartComponent';
 
 const BarChart = ({ data }) => {
   const chartData = {
-    labels: data.months, 
+    labels: data.months,
     datasets: [
       {
         label: 'Sales',
-        data: data.sales, 
-        backgroundColor: 'rgba(249, 214, 232, 0.8)', 
-        borderColor: 'rrgba(134, 11, 74, 0.8)', 
+        data: data.sales,
+        backgroundColor: 'rgba(249, 214, 232, 0.8)',
+        borderColor: 'rgba(134, 11, 74, 0.8)',
         borderWidth: 1,
       },
     ],

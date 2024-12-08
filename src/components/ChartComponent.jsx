@@ -1,12 +1,24 @@
 import { useEffect, useRef } from 'react';
-import { Chart } from 'chart.js';
-// Code used to import important data needed. 
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, PointElement, LineElement, Tooltip, Legend, Title, BubbleElement, Filler } from 'chart.js';
 
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  PointElement,
+  LineElement,
+  Tooltip,
+  Legend,
+  Title,
+  BubbleElement,
+  Filler
+);
+// *i have no idea what this code is but the internet says its the only thing to remove the 3920 errors im getting 
 const ChartComponent = ({ type, data, options }) => {
   const chartRef = useRef(null);
 
   useEffect(() => {
-    const chart = new Chart(chartRef.current, {
+    const chart = new ChartJS(chartRef.current, {
       type: type,
       data: data,
       options: options,
@@ -14,8 +26,7 @@ const ChartComponent = ({ type, data, options }) => {
 
     return () => {
       if (chartRef.current) {
-        chart.destroy(); 
-// This code is used to completely remove the chart when needed. 
+        chart.destroy();
       }
     };
   }, [type, data, options]);
