@@ -5,26 +5,42 @@ import ScatterChart from './components/ScatterChart';
 import BubbleChart from './components/BubbleChart';
 
 const App = () => {
-  const [chartData, setChartData] = useState(null);
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     fetch('/financial_data.json')
       .then((response) => response.json())
-      .then((data) => setChartData(data))
-      .catch((error) => console.error('Error fetching data:', error));
+      .then((data) => setData(data))
+      .catch((error) => console.error('Error while fetching the JSON file', error));
   }, []);
 
-  if (!chartData) {
+  if (!data) {
     return <div>Loading...</div>;
   }
 
   return (
     <div>
-      <h1>Interactive Financial Dashboard</h1>
-      <BarChart data={chartData.sales} />
-      <LineChart data={chartData.profits} />
-      <ScatterChart data={chartData.expenses} />
-      <BubbleChart data={chartData} />
+      <h1>Interactive Charts with React and Chart.js</h1>
+
+      <div>
+        <h2>Bar Chart shows Monthly Sales</h2>
+        <BarChart data={data} />
+      </div>
+
+      <div>
+        <h2>Line Chart shows Monthly Profits</h2>
+        <LineChart data={data} />
+      </div>
+
+      <div>
+        <h2>Scatter Chart shows Expenses vs. Profits</h2>
+        <ScatterChart data={data} />
+      </div>
+
+      <div>
+        <h2>Bubble Chart shows Sales, Profits, and Expenses</h2>
+        <BubbleChart data={data} />
+      </div>
     </div>
   );
 };
